@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/94032306/232680872-123781e9-d059-4e42-
 - CSS and JS bundle 
 - Netlify settings predefine
 - Contact form Support
-- Search by .py
+- Adding Product By Admin
 - CreatePost form support
 - Login ans Singup page
 - Google page speed optimized
@@ -29,7 +29,7 @@ https://user-images.githubusercontent.com/94032306/232680872-123781e9-d059-4e42-
 git clone git@github.com:gethugothemes/Shopper.git
 
 # cd in the project directory
-$ cd icoder
+$ cd Shopper
 
 # Start local dev server
 $ live server --themesDir
