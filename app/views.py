@@ -100,7 +100,7 @@ def minus_cart(request):
 def remove_cart(request):
   if request.method == "GET":
     prod_id = request.GET['prod_id']
-    c = cart.objects.get(Q(product=prod_id) & Q(user=request.user))
+    c = cart.objects.filter(Q(product=prod_id) & Q(user=request.user))
     c.delete()
     amount = 0.0
     shipping_amount = 70.0
@@ -119,7 +119,21 @@ def remove_cart(request):
 
 
 def buy_now(request):
-  return render(request, 'app/buynow.html')
+  user = request.user
+  add = Customer.objects.filter(user=user)
+  cart_items = cart.objects.filter(user=user)
+  amount = 0.0
+  shipping_amount = 70.0
+  totalamount = 0.0
+  cart_product = [p for p in cart.objects.all() if p.user == request.user]
+
+  if cart_product:
+    for p in cart_product:
+      tempamount =( p.quantity * p.product.discount_price)
+      amount += tempamount 
+    totalamount=amount + shipping_amount 
+  return render(request, 'app/card.html',{'add':add, 'totalamount':totalamount, 'cart_items':cart_items})
+  # return render(request, 'app/buynow.html')
 
 
 

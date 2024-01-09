@@ -117,6 +117,19 @@
  <!-- End 3rd Product Slider -->
 
 
+<!-- 3rd Product Slider -->
+<div class="mx-3">
+  <div class="my-3" ><h2>Shopper Laptop</h2></div>
+  <!-- Slider 2 -->
+  <div class="owl-carousel" id="slider4">
+   {% for l in laptops %}
+      <a href="{% url 'product-detail' l.id%}" class="btn"><div class="item"><img src="{{l.product_image.url}}" alt="" height="200px"><span class="fw-bold fs-5">{{l.tittle | truncatechars:15}}</span><br><span class="fs-5">Rs. {{m.discount_price}}</span></div></a>
+   {% endfor %}
+  </div>
+ </div>
+ <!-- End 3rd Product Slider -->
+
+
 
 {% endblock main-content %}
 
